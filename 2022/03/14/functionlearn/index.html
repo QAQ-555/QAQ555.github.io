@@ -20,17 +20,17 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Ĭ�ϲ������������أ�����ģ�壬��ʽ���廯����ʽʵ��������ʾʵ����Ĭ�ϲ����� ������������������ͬ���������겻ͬ���������ͣ�������Ŀ��ͬ���ĺ�������Դ���Ĳ����Ĳ�ͬ��ѡ��ͬ�ĺ���ԭ�� ����ģ������ģ���ṩ�����������Ͷ��庯���ķ������磺 1templat">
+  <meta name="description" content="默认参数，函数重载，函数模板，显式具体化，隐式实例化，显示实例化默认参数略 函数重载定义命称相同，而特征标不同（参数类型，参数数目不同）的函数，针对传入的参数的不同，选择不同的函数原型 函数模板函数模板提供了以任意类型定义函数的方法例如： 1template &lt;typename T&gt; void Swap(T &amp;,T &amp;); 重载与模版两者可结合使用，例后补 隐式实例化编">
 <meta property="og:type" content="article">
-<meta property="og:title" content="c++pp����ѧϰ�ʼ�">
+<meta property="og:title" content="c++pp函数学习笔记">
 <meta property="og:url" content="http://example.com/2022/03/14/functionlearn/index.html">
 <meta property="og:site_name" content="谢不肉">
-<meta property="og:description" content="Ĭ�ϲ������������أ�����ģ�壬��ʽ���廯����ʽʵ��������ʾʵ����Ĭ�ϲ����� ������������������ͬ���������겻ͬ���������ͣ�������Ŀ��ͬ���ĺ�������Դ���Ĳ����Ĳ�ͬ��ѡ��ͬ�ĺ���ԭ�� ����ģ������ģ���ṩ�����������Ͷ��庯���ķ������磺 1templat">
+<meta property="og:description" content="默认参数，函数重载，函数模板，显式具体化，隐式实例化，显示实例化默认参数略 函数重载定义命称相同，而特征标不同（参数类型，参数数目不同）的函数，针对传入的参数的不同，选择不同的函数原型 函数模板函数模板提供了以任意类型定义函数的方法例如： 1template &lt;typename T&gt; void Swap(T &amp;,T &amp;); 重载与模版两者可结合使用，例后补 隐式实例化编">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-14T12:00:47.000Z">
-<meta property="article:modified_time" content="2022-03-15T12:42:46.741Z">
+<meta property="article:modified_time" content="2022-03-15T12:43:54.514Z">
 <meta property="article:author" content="PFB">
-<meta property="article:tag" content="������CPP">
+<meta property="article:tag" content="函数，CPP">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/2022/03/14/functionlearn/">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>c++pp����ѧϰ�ʼ� | 谢不肉</title>
+  <title>c++pp函数学习笔记 | 谢不肉</title>
   
 
 
@@ -165,7 +165,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          c++pp����ѧϰ�ʼ�
+          c++pp函数学习笔记
         </h1>
 
         <div class="post-meta">
@@ -182,7 +182,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-15 20:42:46" itemprop="dateModified" datetime="2022-03-15T20:42:46+08:00">2022-03-15</time>
+                <time title="修改时间：2022-03-15 20:43:54" itemprop="dateModified" datetime="2022-03-15T20:43:54+08:00">2022-03-15</time>
               </span>
 
           
@@ -196,18 +196,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="I�ϲ������������أ�����g�壬��ʽ���廯����ʽʵ��������ʾʵ����"><a href="#I�ϲ������������أ�����g�壬��ʽ���廯����ʽʵ��������ʾʵ����" class="headerlink" title="Ĭ�ϲ������������أ�����ģ�壬��ʽ���廯����ʽʵ��������ʾʵ����"></a>Ĭ�ϲ������������أ�����ģ�壬��ʽ���廯����ʽʵ��������ʾʵ����</h2><h3 id="I�ϲ���"><a href="#I�ϲ���" class="headerlink" title="Ĭ�ϲ���"></a>Ĭ�ϲ���</h3><p>��</p>
-<h3 id="��������"><a href="#��������" class="headerlink" title="��������"></a>��������</h3><p>����������ͬ���������겻ͬ���������ͣ�������Ŀ��ͬ���ĺ�������Դ���Ĳ����Ĳ�ͬ��ѡ��ͬ�ĺ���ԭ��</p>
-<h3 id="����g��"><a href="#����g��" class="headerlink" title="����ģ��"></a>����ģ��</h3><p>����ģ���ṩ�����������Ͷ��庯���ķ���<br>���磺</p>
+        <h2 id="默认参数，函数重载，函数模板，显式具体化，隐式实例化，显示实例化"><a href="#默认参数，函数重载，函数模板，显式具体化，隐式实例化，显示实例化" class="headerlink" title="默认参数，函数重载，函数模板，显式具体化，隐式实例化，显示实例化"></a>默认参数，函数重载，函数模板，显式具体化，隐式实例化，显示实例化</h2><h3 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h3><p>略</p>
+<h3 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h3><p>定义命称相同，而特征标不同（参数类型，参数数目不同）的函数，针对传入的参数的不同，选择不同的函数原型</p>
+<h3 id="函数模板"><a href="#函数模板" class="headerlink" title="函数模板"></a>函数模板</h3><p>函数模板提供了以任意类型定义函数的方法<br>例如：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">void</span> <span class="title">Swap</span><span class="params">(T &amp;,T &amp;)</span></span>;</span><br></pre></td></tr></table></figure>
-<h3 id="������g��"><a href="#������g��" class="headerlink" title="������ģ��"></a>������ģ��</h3><p>���߿ɽ��ʹ�ã�����</p>
-<h3 id="��ʽʵ����"><a href="#��ʽʵ����" class="headerlink" title="��ʽʵ����"></a>��ʽʵ����</h3><p>���������鴫��������ͣ�Ȼ��������غ���������ʵ���������ͳ�֮Ϊ��ʽ���廯</p>
-<h3 id="��ʾ���廯"><a href="#��ʾ���廯" class="headerlink" title="��ʾ���廯"></a>��ʾ���廯</h3><p>Ϊ�ض������ṩ���廯��ģ�嶨�壬����swap�����޷����������ṹ��ʹ�ã����д���º�����</p>
+<h3 id="重载与模版"><a href="#重载与模版" class="headerlink" title="重载与模版"></a>重载与模版</h3><p>两者可结合使用，例后补</p>
+<h3 id="隐式实例化"><a href="#隐式实例化" class="headerlink" title="隐式实例化"></a>隐式实例化</h3><p>编译器检验传入参数类型，然后生成相关函数，这种实例化方法就称之为隐式具体化</p>
+<h3 id="显示具体化"><a href="#显示具体化" class="headerlink" title="显示具体化"></a>显示具体化</h3><p>为特定类型提供具体化的模板定义，例如swap明显无法满足数组或结构的使用，则编写如下函数：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    node* next;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span> &lt;&gt; <span class="keyword">void</span> Swap&lt;node&gt;(node &amp;,node &amp;);</span><br><span class="line"><span class="keyword">template</span> &lt;&gt; <span class="function"><span class="keyword">void</span> <span class="title">Swap</span><span class="params">(node &amp;,node &amp;)</span></span>;</span><br></pre></td></tr></table></figure>
-<h3 id="��ʽʵ����-1"><a href="#��ʽʵ����-1" class="headerlink" title="��ʽʵ����"></a>��ʽʵ����</h3><p>����ʽʵ������ԣ������ɱ��������ݲ���������ʽ����ʵ��������������λĳ�ֲ������ͱ�дʵ��������/<br>����</p>
+<h3 id="显式实例化"><a href="#显式实例化" class="headerlink" title="显式实例化"></a>显式实例化</h3><p>与隐式实例化相对，并非由编译器根据参数类型隐式生成实例化函数，而是位某种参数类型编写实例化函数/<br>例；</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> <span class="keyword">void</span> Swap&lt;<span class="keyword">int</span>&gt;(<span class="keyword">int</span> &amp;,<span class="keyword">int</span> &amp;);</span><br><span class="line"><span class="function"><span class="keyword">template</span> <span class="keyword">void</span> <span class="title">Swap</span><span class="params">(<span class="keyword">int</span> &amp;,<span class="keyword">int</span> &amp;)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>��Ϊ��swapģ�����ɲ�������Ϊint�ĺ�������</p>
-<h3 id="����ԭ�����ȶ�p������"><a href="#����ԭ�����ȶ�p������" class="headerlink" title="����ԭ�����ȶ�ƥ������"></a>����ԭ�����ȶ�ƥ������</h3><p>��ģ��&gt;��ʾ���廯&gt;ģ�庯��</p>
+<p>意为用swap模板生成参数类型为int的函数定义</p>
+<h3 id="函数原型优先度匹配问题"><a href="#函数原型优先度匹配问题" class="headerlink" title="函数原型优先度匹配问题"></a>函数原型优先度匹配问题</h3><p>非模板&gt;显示具体化&gt;模板函数</p>
 
     </div>
 
@@ -217,7 +217,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BDCPP/" rel="tag"># ������CPP</a>
+              <a href="/tags/%E5%87%BD%E6%95%B0%EF%BC%8CCPP/" rel="tag"># 函数，CPP</a>
           </div>
 
         
@@ -230,8 +230,8 @@
       <i class="fa fa-chevron-left"></i> 虚幻4引擎新建项目时报错解决方案
     </a></div>
       <div class="post-nav-item">
-    <a href="/2022/03/15/chapter8/" rel="next" title="c++pp �ڰ��±����ϰ">
-      c++pp �ڰ��±����ϰ <i class="fa fa-chevron-right"></i>
+    <a href="/2022/03/15/chapter8/" rel="next" title="c++pp 第八章编程练习">
+      c++pp 第八章编程练习 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -291,7 +291,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#I%EF%BF%BD%CF%B2%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%D8%A3%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BDg%EF%BF%BD%E5%A3%AC%EF%BF%BD%EF%BF%BD%CA%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%E5%BB%AF%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%CA%BD%CA%B5%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%CA%BE%CA%B5%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD"><span class="nav-number">1.</span> <span class="nav-text">Ĭ�ϲ������������أ�����ģ�壬��ʽ���廯����ʽʵ��������ʾʵ����</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#I%EF%BF%BD%CF%B2%EF%BF%BD%EF%BF%BD%EF%BF%BD"><span class="nav-number">1.1.</span> <span class="nav-text">Ĭ�ϲ���</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD"><span class="nav-number">1.2.</span> <span class="nav-text">��������</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BDg%EF%BF%BD%EF%BF%BD"><span class="nav-number">1.3.</span> <span class="nav-text">����ģ��</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BDg%EF%BF%BD%EF%BF%BD"><span class="nav-number">1.4.</span> <span class="nav-text">������ģ��</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BF%BD%EF%BF%BD%CA%BD%CA%B5%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD"><span class="nav-number">1.5.</span> <span class="nav-text">��ʽʵ����</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BF%BD%EF%BF%BD%CA%BE%EF%BF%BD%EF%BF%BD%EF%BF%BD%E5%BB%AF"><span class="nav-number">1.6.</span> <span class="nav-text">��ʾ���廯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BF%BD%EF%BF%BD%CA%BD%CA%B5%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD-1"><span class="nav-number">1.7.</span> <span class="nav-text">��ʽʵ����</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%D4%AD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%C8%B6%EF%BF%BDp%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD"><span class="nav-number">1.8.</span> <span class="nav-text">����ԭ�����ȶ�ƥ������</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0%EF%BC%8C%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%EF%BC%8C%E5%87%BD%E6%95%B0%E6%A8%A1%E6%9D%BF%EF%BC%8C%E6%98%BE%E5%BC%8F%E5%85%B7%E4%BD%93%E5%8C%96%EF%BC%8C%E9%9A%90%E5%BC%8F%E5%AE%9E%E4%BE%8B%E5%8C%96%EF%BC%8C%E6%98%BE%E7%A4%BA%E5%AE%9E%E4%BE%8B%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">默认参数，函数重载，函数模板，显式具体化，隐式实例化，显示实例化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">默认参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="nav-number">1.2.</span> <span class="nav-text">函数重载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%A8%A1%E6%9D%BF"><span class="nav-number">1.3.</span> <span class="nav-text">函数模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD%E4%B8%8E%E6%A8%A1%E7%89%88"><span class="nav-number">1.4.</span> <span class="nav-text">重载与模版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%90%E5%BC%8F%E5%AE%9E%E4%BE%8B%E5%8C%96"><span class="nav-number">1.5.</span> <span class="nav-text">隐式实例化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E5%85%B7%E4%BD%93%E5%8C%96"><span class="nav-number">1.6.</span> <span class="nav-text">显示具体化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E5%BC%8F%E5%AE%9E%E4%BE%8B%E5%8C%96"><span class="nav-number">1.7.</span> <span class="nav-text">显式实例化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B%E4%BC%98%E5%85%88%E5%BA%A6%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98"><span class="nav-number">1.8.</span> <span class="nav-text">函数原型优先度匹配问题</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
